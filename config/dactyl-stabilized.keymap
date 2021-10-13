@@ -26,7 +26,7 @@
  &kp ESC    &kp N1 	&kp N2   &kp N3 &kp N4 &kp N5 		&kp MINUS          &kp EQUAL    &kp N6 	  &kp N7  &kp N8  &kp N9   &kp N0    &kp RWIN
  &kp INS    &kp Q    	&kp W    &kp F    &kp P      &kp B     		&kp LBKT           &kp RBKT   	 &kp J     	  &kp L     &kp U     &kp Y       &kp P       &kp BSLH
  &kp TAB  	&kp A   	&kp R    &kp S    &kp T      &kp G    		&kp GRAVE          &kp APOS   	 &kp M     	  &kp N     &kp E     &kp I       &kp O    	  &kp CAPS
- &kp LSHFT  &kp Z    	&kp X    &kp C    &kp F      &kp V                                 			 &kp K    	  &kp H     &kp COMMA &kp DOT     &kp FSLH    &kp RSHFT
+ &kp LSHFT  &kp Z    	&kp X    &kp C    &kp D      &kp V                                 			 &kp K    	  &kp H     &kp COMMA &kp DOT     &kp FSLH    &kp RSHFT
             &kp LCTRL   &kp LALT &kp DEL  &kp BSPC   &lt 2 PG_DN    &lt 1 PG_UP        &lt 2 HOME     &lt 1 END   &kp SPACE &kp ENTER  &kp RALT   &kp RCTRL
              >;
  
