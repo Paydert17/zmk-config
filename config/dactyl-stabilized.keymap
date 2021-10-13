@@ -17,7 +17,7 @@
          default_layer {
  // ------------------------------------------------------------------------------------------------------------
  // |  ESC  |  !  |  @  |   #  |   $   |   %   |   ^   |  |   &   |   *   |  (    |  )    |  -   |   +   |   `   |
- // |  INS  |  Q  |  W  |   E  |   R   |   T   |   [   |  |   ]   |   Y   |  U    |  I    |  O   |   P   |   \   |
+ // |  INS  |  Q  |  W  |   F  |   R   |   T   |   [   |  |   ]   |   Y   |  U    |  I    |  O   |   P   |   \   |
  // |  TAB  |  A  |  S  |   D  |   F   |   G   |   (   |  |   )   |   H   |  J    |  K    |  L   |   ;   |   '   |
  // |  SHFT |  Z  |  X  |   C  |   V   |   B   |       |  |       |   N   |  M    |  ,    |  .   |   /   | ENTER |
  //         | XXX | ALT |  GUI | ENTER | RAISE | LOWER |  | RAISE | LOWER | SPACE | BSPC  | UNDO |   DO  |
