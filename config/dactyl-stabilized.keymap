@@ -4,12 +4,24 @@
  * SPDX-License-Identifier: MIT
  */
 
- #include <behaviors.dtsi>
+#include <behaviors.dtsi>
+/ {
+    behaviors {
+        lt: behavior_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <400>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+};
  #include <dt-bindings/zmk/keys.h>
  #include <dt-bindings/zmk/bt.h>
  #include <dt-bindings/zmk/outputs.h>
  
- / {
+/ {
      keymap {
          compatible = "zmk,keymap";
          default_layer {
@@ -21,10 +33,10 @@
  //         | XXX | ALT |  GUI | ENTER | RAISE | LOWER |  | RAISE | LOWER | SPACE | BSPC  | UNDO |   DO  |
  //
              bindings = <
- &kp ESC    &kp N1 	&kp N2   &kp N3 &kp N4 &kp N5 		&kp MINUS          &kp EQUAL    &kp N6 	  &kp N7  &kp N8  &kp N9   &kp N0    &kp RWIN
- &kp INS    &kp Q    	&kp W    &kp F    &kp P      &kp B     		&kp LBKT           &kp RBKT   	 &kp J     	  &kp L     &kp U     &kp Y       &kp SEMI       &kp BSLH
- &kp TAB  	&kp A   	&kp R    &kp S    &kp T      &kp G    		&kp GRAVE          &kp APOS   	 &kp M     	  &kp N     &kp E     &kp I       &kp O    	  &kp CAPS
- &kp LSHFT  &kp Z    	&kp X    &kp C    &kp D      &kp V                                 			 &kp K    	  &kp H     &kp COMMA &kp DOT     &kp FSLH    &kp RSHFT
+&kp ESC    &kp N1 	&kp N2   &kp N3 &kp N4 &kp N5 		&kp MINUS          &kp EQUAL    &kp N6 	  &kp N7  &kp N8  &kp N9   &kp N0    &kp RWIN
+&kp INS    &kp Q    	&kp W    &kp F    &kp P      &kp B     		&kp LBKT           &kp RBKT   	 &kp J     	  &kp L     &kp U     &kp Y       &kp SEMI       &kp BSLH
+&kp TAB  	&kp A   	&kp R    &kp S    &kp T      &kp G    		&kp GRAVE          &kp APOS   	 &kp M     	  &kp N     &kp E     &kp I       &kp O    	  &kp CAPS
+&kp LSHFT  &kp Z    	&kp X    &kp C    &kp D      &kp V                                 			 &kp K    	  &kp H     &kp COMMA &kp DOT     &kp FSLH    &kp RSHFT
             &kp LCTRL   &kp LALT &kp DEL  &kp BSPC   &lt 2 PG_DN    &lt 1 PG_UP        &lt 1 HOME     &lt 2 END   &kp SPACE &kp ENTER  &kp RALT   &kp RCTRL
              >;
  
@@ -39,10 +51,10 @@
  // |       |  F10   |  F1   |   F2   |   F3   |   PG BREAK     |        |  |       |          |    UP      |    LFT    |   RGT    |    DWN    |       |
  //                  |       |        |        |                |        |  |       |          |            |           |          |           |       |
              bindings = <
- &trans    &trans    &trans    &trans    &trans    &trans    		 &trans          &trans    &trans   		&trans   		&trans 				 &trans    		&trans      		 &trans
- &trans    &kp F12   &kp F7    &kp F8    &kp F9    &kp PSCRN  		 &trans          &trans    &trans    		&trans 			&trans				 &trans 		&trans       		 &trans
- &trans    &kp F11   &kp F4    &kp F5    &kp F6    &kp SLCK    		 &trans          &trans    &kp C_AC_REDO    &kp C_AC_PASTE 	&kp C_AC_COPY 		 &kp C_AC_CUT 	&kp C_AC_UNDO 		 &trans
- &trans    &kp F10   &kp F1    &kp F2    &kp F3    &kp PAUSE_BREAK                             &trans    		&kp UP 			&kp LEFT 			 &kp RIGHT 		&kp DOWN   			 &trans
+&trans    &trans    &trans    &trans    &trans    &trans    		 &trans          &trans    &trans   		&trans   		&trans 				 &trans    		&trans      		 &trans
+&trans    &kp F12   &kp F7    &kp F8    &kp F9    &kp PSCRN  		 &trans          &trans    &trans    		&trans 			&trans				 &trans 		&trans       		 &trans
+&trans    &kp F11   &kp F4    &kp F5    &kp F6    &kp SLCK    		 &trans          &trans    &kp C_AC_REDO    &kp C_AC_PASTE 	&kp C_AC_COPY 		 &kp C_AC_CUT 	&kp C_AC_UNDO 		 &trans
+&trans    &kp F10   &kp F1    &kp F2    &kp F3    &kp PAUSE_BREAK                             &trans    		&kp UP 			&kp LEFT 			 &kp RIGHT 		&kp DOWN   			 &trans
            &trans    &trans    &trans    &trans    &trans   		 &trans          &trans    &trans   		&trans    		&trans    			 &trans 		&trans
              >;
          };
@@ -55,12 +67,12 @@
  // |       |  0   |   1  |    2  |   3   |   .       |        |  |     PREV    |   MUTE       |   VOL DWN    |   VOL UP    |   NEXT   |       |       |
  //                |      |       |       |           |        |  |    STOP     |   PLPAUSE    |              |             |          |       |       |
              bindings = <
- &trans  	  &trans 	   &trans 	      &kp KP_SLASH 	 &kp KP_MULTIPLY	    &kp KP_MINUS	 &trans          &out OUT_TOG   &bt BT_CLR       &bt BT_NXT      &trans   		 &trans   		 &trans   	 &trans
- &trans 	  &trans       &kp KP_N7      &kp KP_N8      &kp KP_N9      		&kp KP_PLUS      &trans          &trans    		&trans    		 &trans   		 &trans   		 &trans   		 &trans   	 &trans
- &trans       &trans       &kp KP_N4      &kp KP_N5      &kp KP_N6     			KP_ENTER         &trans          &trans    		&kp C_PREV   	 &kp C_MUTE  	 &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT  &trans
- &trans       &kp KP_N0    &kp KP_N1      &kp KP_N2      &kp KP_N3     			&kp KP_DOT                               		&kp C_STOP   	 &kp C_PP   	 &trans   		 &trans 		 &trans    	 &trans
+&trans  	 &trans 	  &trans 	     &kp KP_SLASH 	&kp KP_MULTIPLY	        &kp KP_MINUS	 &trans          &out OUT_TOG   &bt BT_CLR       &bt BT_NXT      &trans   		 &trans   		 &trans   	 &trans
+&trans       &trans       &kp KP_N7      &kp KP_N8      &kp KP_N9      		    &kp KP_PLUS      &trans          &trans    		&trans    		 &trans   		 &trans   		 &trans   		 &trans   	 &trans
+&trans       &trans       &kp KP_N4      &kp KP_N5      &kp KP_N6     			&kp KP_ENTER     &trans          &trans    		&kp C_PREV   	 &kp C_MUTE  	 &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT  &trans
+&trans       &kp KP_N0    &kp KP_N1      &kp KP_N2      &kp KP_N3     			&kp KP_DOT                               		&kp C_STOP   	 &kp C_PP   	 &trans   		 &trans 		 &trans    	 &trans
               &trans       &trans      	  &trans      	 &trans      	 	 	&trans      	 &trans          &trans    		&trans   		 &trans   		 &trans    		 &trans 		 &trans
              >;
          };
      };
- };
+};
